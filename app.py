@@ -27,6 +27,23 @@ except Exception:
 import streamlit as st
 import pandas as pd
 
+import os
+import subprocess
+import sys
+
+# Create sample data files if they don't exist
+required_files = [
+    "data/sales.db",
+    "data/employees.xlsx",
+    "data/web_analytics.csv",
+]
+
+if not all(os.path.exists(file) for file in required_files):
+    subprocess.run(
+        [sys.executable, "create_data.py"],
+        check=True
+    )
+
 from agent import agent
 from visualization.charts import generate_chart
 
