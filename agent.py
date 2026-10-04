@@ -28,7 +28,6 @@ from tools.csv_tool import (
 # Llama 3 Configuration
 # =========================================================
 
-from langchain_ollama import ChatOllama
 
 llm = ChatOllama(
     model="llama3:latest",
